@@ -1,5 +1,9 @@
 Learnarabic::Application.routes.draw do
   devise_for :users
+  #, controllers: { registrations: 'users/registrations' }
+  resources :users do
+    resource :profile
+  end
   get '/about' => 'pages#about'
   root 'pages#home'
   # The priority is based upon order of creation: first created -> highest priority.
